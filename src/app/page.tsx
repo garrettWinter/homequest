@@ -1,6 +1,14 @@
+import { UserTable } from "@/drizzle/schema";
+import { db } from "../drizzle/db";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+
+  await db.insert(UserTable).values({
+    userId: "bc526892-a014-4e8d-baf9-8688f051caa1",
+    username: "gwinter",
+  })
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
