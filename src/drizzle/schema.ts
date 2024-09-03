@@ -7,6 +7,11 @@ export const UserTable = pgTable("user_table", {
     lastUpdated: timestamp("last_updated").defaultNow(),
 });
 
+export const ListTable = pgTable("list_table", {
+    listId: uuid("list_id").primaryKey(),
+    listName: varchar("list_name", {length: 255})
+});
+
 export const TaskTable = pgTable("task_table", {
     taskId: uuid("task_id").primaryKey().defaultRandom(),
     taskName: varchar("task_name").notNull(), ///// SHould this have a set max length?
